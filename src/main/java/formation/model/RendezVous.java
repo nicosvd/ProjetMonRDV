@@ -1,5 +1,6 @@
 package formation.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,7 +13,8 @@ public class RendezVous {
 	@Id
 	@GeneratedValue
 	Long id;
-//	private Patient patient;
+	@Column(name = "patient")
+	private Patient patient;
 	@OneToOne(mappedBy = "rendezVous")
 	private Motif motif;
 	@OneToOne(mappedBy = "rendezVous")
@@ -29,12 +31,20 @@ public class RendezVous {
 		this.id = id;
 	}
 
-//	public Patient getPatient() {
-//		return patient;
-//	}
-//
-//	public void setPatient(Patient patient) {
-//		this.patient = patient;
-//	}
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	public Motif getMotif() {
+		return motif;
+	}
+
+	public Creneau getCreneau() {
+		return creneau;
+	}
 
 }

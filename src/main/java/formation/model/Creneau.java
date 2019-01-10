@@ -2,6 +2,7 @@ package formation.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,7 +18,8 @@ public class Creneau {
 	Long id;
 	Date dateRendezVous;
 	int uniteTempsCreneau;
-	// Adresse adresse;
+	@Column(name = "adresse")
+	Adresse adresse;
 	@OneToOne
 	@JoinColumn(name = "meeting")
 	private RendezVous rendezVous;
@@ -56,15 +58,13 @@ public class Creneau {
 	public void setRendezVous(RendezVous rendezVous) {
 		this.rendezVous = rendezVous;
 	}
-	
-	
 
-//	public Adresse getAdresse() {
-//		return adresse;
-//	}
+	public Adresse getAdresse() {
+		return adresse;
+	}
 
-//	public void setAdresse(Adresse adresse) {
-//		this.adresse = adresse;
-//	}
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 
 }
