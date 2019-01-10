@@ -8,6 +8,7 @@ import javax.persistence.TypedQuery;
 
 import formation.Application;
 import formation.dao.IDaoUtilisateur;
+import formation.model.Patient;
 import formation.model.Praticien;
 import formation.model.Utilisateur;
 
@@ -134,6 +135,35 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 			tx.begin();
 
 			TypedQuery<Praticien> query = em.createQuery("from Praticien", Praticien.class);
+
+			liste = query.getResultList();
+
+			tx.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (tx != null) {
+				tx.rollback();
+			}
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+		}
+
+		return liste;
+	}
+
+	@Override
+	public List<Patient> findAllPatient() {
+		List<Patient> liste = null;
+		EntityManager em = null;
+		EntityTransaction tx = null;
+		try {
+			em = Application.getInstance().getEmf().createEntityManager();
+			tx = em.getTransaction();
+			tx.begin();
+
+			TypedQuery<Patient> query = em.createQuery("from Patient", Patient.class);
 
 			liste = query.getResultList();
 
