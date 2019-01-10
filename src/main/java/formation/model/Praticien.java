@@ -3,6 +3,7 @@ package formation.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -19,6 +20,9 @@ import java.util.List;
 @Table(name = "practitioner")
 public class Praticien {
 	@Id
+	@GeneratedValue
+	private Long id;
+	@Column(name = "order_number")
 	private int numeroOrdre;
 	@Column(name = "phone_number")
 	private int numeroDeTel;

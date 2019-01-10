@@ -7,6 +7,8 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
@@ -17,6 +19,9 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Patient {
+	@Id
+	@GeneratedValue
+	private Long id;
 	@Column (name="phone")
 	private Integer telephone;
 	@Column(name = "birthDate")
