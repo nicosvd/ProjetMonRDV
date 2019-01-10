@@ -1,5 +1,7 @@
 package formation.dao;
 
-public class IDaoPraticien {
+import formation.model.Praticien;
+
+public interface IDaoPraticien extends IDao<Praticien, Long> {
 
 }
