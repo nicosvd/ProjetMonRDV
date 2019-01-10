@@ -13,7 +13,7 @@ import formation.model.Praticien;
 import formation.model.Utilisateur;
 
 
-public class DaoUtilisateur implements IDaoUtilisateur {
+public class DaoUtilisateurJpa implements IDaoUtilisateur {
 
 	@Override
 	public List<Utilisateur> findAll() {

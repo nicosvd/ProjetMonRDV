@@ -12,9 +12,9 @@ import formation.dao.IDaoUtilisateur;
 import formation.dao.jpa.DaoAdresseJpa;
 import formation.dao.jpa.DaoCreneauJpa;
 import formation.dao.jpa.DaoMotifJpa;
-import formation.dao.jpa.DaoPraticien;
+import formation.dao.jpa.DaoPraticienJpa;
 import formation.dao.jpa.DaoRendezVousJpa;
-import formation.dao.jpa.DaoUtilisateur;
+import formation.dao.jpa.DaoUtilisateurJpa;
 
 public class Application {
 
@@ -26,8 +26,8 @@ public class Application {
 	private final IDaoMotif daoMotif = new DaoMotifJpa();
 	private final IDaoCreneau daoCreneau = new DaoCreneauJpa();
 	private final IDaoAdresse daoAdresse = new DaoAdresseJpa();
-	private final IDaoUtilisateur daoUtilisateur = new DaoUtilisateur();
-	private final IDaoPraticien daoPraticien = new DaoPraticien();
+	private final IDaoUtilisateur daoUtilisateur = new DaoUtilisateurJpa();
+	private final IDaoPraticien daoPraticien = new DaoPraticienJpa();
 	
 	
 	public IDaoPraticien getDaoPraticien() {

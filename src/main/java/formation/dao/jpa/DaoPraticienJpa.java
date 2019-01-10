@@ -11,7 +11,7 @@ import formation.dao.IDaoPraticien;
 import formation.model.Praticien;
 import formation.model.Praticien;
 
-public class DaoPraticien implements IDaoPraticien {
+public class DaoPraticienJpa implements IDaoPraticien {
 
 	@Override
 	public List<Praticien> findAll() {
