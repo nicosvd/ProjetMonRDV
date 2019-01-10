@@ -12,12 +12,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue("patient")
-
+@Table
 public class Patient {
-	@Column(name = "phone")
+	@Column (name="phone")
 	private Integer telephone;
 	@Column(name = "birthDate")
 	private Date dtNaissance;

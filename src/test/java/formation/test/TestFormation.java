@@ -24,7 +24,7 @@ public class TestFormation {
 			tx = em.getTransaction();
 
 			tx.begin();
-			Utilisateur nicosvd = new Utilisateur("nico.svd@orange.fr","sudoku",TypeUtilisateur.PATIENT);
+			Utilisateur nicosvd = new Utilisateur("nico.svd@orange.fr","sudoku",TypeUtilisateur.Praticien);
 			Praticien sekouly = new Praticien(15687,"KOULIBALY","SEKOULY");
 			sekouly.setCb(true);
 			sekouly.setCheque(true);
