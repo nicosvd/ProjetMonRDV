@@ -49,6 +49,16 @@ public class Creneau {
 		this.uniteTempsCreneau = uniteTempsCreneau;
 	}
 
+	public RendezVous getRendezVous() {
+		return rendezVous;
+	}
+
+	public void setRendezVous(RendezVous rendezVous) {
+		this.rendezVous = rendezVous;
+	}
+	
+	
+
 //	public Adresse getAdresse() {
 //		return adresse;
 //	}

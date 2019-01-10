@@ -1,5 +1,8 @@
 package formation.test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import formation.Application;
 import formation.dao.IDaoAdresse;
 import formation.dao.IDaoCreneau;
@@ -12,30 +15,33 @@ import formation.model.RendezVous;
 
 public class TestFormationWithDao {
 
-	public static void main(String[] args) {
-		IDaoRendezVous daoRendezVous = Application.getInstance().getDaoRendezVous();
+	public static void main(String[] args) throws ParseException {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
+		IDaoMotif daoMotif = Application.getInstance().getDaoMotif();
+		Motif motif = new Motif();
+		motif.setMotifRendezVous("Consultation");
+		motif.setPrixConsultation(20);
+		motif.setDureeConsultation(30);
+		motif = daoMotif.save(motif);
+		System.out.println(
+				motif.getMotifRendezVous() + "\t" + motif.getPrixConsultation() + "\t" + motif.getDureeConsultation());
+
+		IDaoRendezVous daoRendezVous = Application.getInstance().getDaoRendezVous();
 		RendezVous rendezVous = new RendezVous();
 		rendezVous = daoRendezVous.save(rendezVous);
 		System.out.println(rendezVous);
 
-		IDaoMotif daoMotif = Application.getInstance().getDaoMotif();
-
-		Motif motif = new Motif();
-		motif.setDureeConsultation(30);
-		motif = daoMotif.save(motif);
-		System.out.println(motif.getDureeConsultation());
-
 		IDaoCreneau daoCreneau = Application.getInstance().getDaoCreneau();
-
 		Creneau creneau = new Creneau();
+		creneau.setDateRendezVous(sdf.parse("10-12-1994"));
+		creneau.setUniteTempsCreneau(15);
+		creneau.setRendezVous(rendezVous);
 		creneau = daoCreneau.save(creneau);
-		System.out.println(creneau);
+		System.out.println(
+				creneau.getDateRendezVous() + "\t" + creneau.getUniteTempsCreneau() + "\t" + creneau.getRendezVous());
 
-		IDaoAdresse daoAdresse = Application.getInstance().getDaoAdresse();
-		Adresse adresse = new Adresse(20, "Rue Brezin", 75014, " Paris", "France");
-		adresse = daoAdresse.save(adresse);
-		System.out.println(adresse.getRue());
 	}
 
 }
