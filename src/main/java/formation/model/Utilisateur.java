@@ -1,33 +1,39 @@
 package formation.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
-
 @Entity
-@Table(name = "user")
-public class Utilisateur implements Serializable {
-	private static final long serialVersionUID = 1L;
+@Table(name="Person")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type", discriminatorType=DiscriminatorType.STRING)
+
+public class Utilisateur {
+
 	@Id
 	@GeneratedValue
-	@Column
 	private Long id;
-	@Column(name = "mail")
-	private String courriel;
-	@Column(name = "password")
-	private String motDePasse;
-	@Column(name = "type")
-	private TypeUtilisateur type;
-//	@OneToOne(mappedBy="utilisateur")
-//	private Praticien praticien;
-	
+	@Column (name="courriel")
+	private String mail;
+	@Column (name="password")
+	private String motdepasse;
+	@Enumerated(EnumType.STRING)
+	private TypeUtilisateur typeUtilisateur;
+//	@OneToMany (mappebBy="utilisateur")
+//	private Patient patient;
 	
 	
 	public Utilisateur() {
@@ -35,26 +41,12 @@ public class Utilisateur implements Serializable {
 	}
 
 
-
-	public Utilisateur(String courriel, String motDePasse, TypeUtilisateur type) {
+	public Utilisateur(String mail, String motdepasse, TypeUtilisateur typeUtilisateur) {
 		super();
-		this.courriel = courriel;
-		this.motDePasse = motDePasse;
-		this.type = type;
+		this.mail = mail;
+		this.motdepasse = motdepasse;
+		this.typeUtilisateur = typeUtilisateur;
 	}
-
-
-
-//	public Praticien getPraticien() {
-//		return praticien;
-//	}
-//
-//
-//
-//	public void setPraticien(Praticien praticien) {
-//		this.praticien = praticien;
-//	}
-
 
 
 	public Long getId() {
@@ -62,47 +54,42 @@ public class Utilisateur implements Serializable {
 	}
 
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
 
 
-
-	public String getCourriel() {
-		return courriel;
+	public String getMail() {
+		return mail;
 	}
 
 
-
-	public void setCourriel(String courriel) {
-		this.courriel = courriel;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 
 
-
-	public String getMotDePasse() {
-		return motDePasse;
+	public String getMotdepasse() {
+		return motdepasse;
 	}
 
 
-
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
+	public void setMotdepasse(String motdepasse) {
+		this.motdepasse = motdepasse;
 	}
 
 
-
-	public TypeUtilisateur getType() {
-		return type;
+	public TypeUtilisateur getTypeUtilisateur() {
+		return typeUtilisateur;
 	}
 
 
-
-	public void setType(TypeUtilisateur type) {
-		this.type = type;
+	public void setTypeUtilisateur(TypeUtilisateur typeUtilisateur) {
+		this.typeUtilisateur = typeUtilisateur;
 	}
 	
 	
-
+	
+	
+	
 }

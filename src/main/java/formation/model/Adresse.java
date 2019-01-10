@@ -1,8 +1,10 @@
 package formation.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -11,11 +13,19 @@ public class Adresse {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Column (name="number")
 	private int numero;
+	@Column (name="street")
 	private String rue;
+	@Column (name="zipcode")
 	private int codePostal;
+	@Column (name="city")
 	private String ville;
+	@Column (name="country")
 	private String pays;
+	@OneToOne (mappedBy = "adresse")
+	private Patient patient;
+	
 
 	public Adresse() {
 	}

@@ -1,7 +1,5 @@
 package formation.model;
 
 public enum TypeUtilisateur {
-	
-	PATIENT,PRATICIEN;
-
+Admin, Patient, Praticien;
 }
