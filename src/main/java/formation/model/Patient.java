@@ -9,14 +9,15 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
 @Entity
-@DiscriminatorValue("patient")
 
-public class Patient extends Utilisateur{
+@Table
+public class Patient {
 	@Column (name="phone")
 	private Integer telephone;
 	@Column (name="birthDate")
@@ -29,8 +30,8 @@ public class Patient extends Utilisateur{
 	@OneToOne
 	@JoinColumn
 	private Adresse adresse;
-//	@ManyToOne
-//	private Utilisateur utilisateur;
+	@ManyToOne
+	private Utilisateur utilisateur;
 
 	
 	

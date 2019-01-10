@@ -1,5 +1,7 @@
 package formation.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -13,6 +15,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -30,7 +33,7 @@ public class Utilisateur implements Serializable {
 	@Column(name = "type")
 	@Enumerated(EnumType.STRING)
 	private TypeUtilisateur type;
-//	@OneToMany (mappebBy="utilisateur")
+//	@OneToMany (mappedBy="utilisateur")
 //	private Patient patient;
 	@OneToOne(mappedBy="utilisateur")
 	private Praticien praticien;
@@ -41,25 +44,12 @@ public class Utilisateur implements Serializable {
 	}
 
 
-	public Utilisateur(String mail, String motdepasse, TypeUtilisateur typeUtilisateur) {
+	public Utilisateur(String courriel, String motDePasse, TypeUtilisateur type) {
 		super();
-		this.mail = mail;
-		this.motdepasse = motdepasse;
-		this.typeUtilisateur = typeUtilisateur;
+		this.courriel = courriel;
+		this.motDePasse = motDePasse;
+		this.type = type;
 	}
-
-
-
-	public Praticien getPraticien() {
-		return praticien;
-	}
-
-
-
-	public void setPraticien(Praticien praticien) {
-		this.praticien = praticien;
-	}
-
 
 
 	public Long getId() {
@@ -72,34 +62,38 @@ public class Utilisateur implements Serializable {
 	}
 
 
-	public String getMail() {
-		return mail;
+	public String getCourriel() {
+		return courriel;
 	}
 
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setCourriel(String courriel) {
+		this.courriel = courriel;
 	}
 
 
-	public String getMotdepasse() {
-		return motdepasse;
+	public String getMotDePasse() {
+		return motDePasse;
 	}
 
 
-	public void setMotdepasse(String motdepasse) {
-		this.motdepasse = motdepasse;
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
 	}
 
 
-	public TypeUtilisateur getTypeUtilisateur() {
-		return typeUtilisateur;
+	public TypeUtilisateur getType() {
+		return type;
 	}
 
 
-	public void setTypeUtilisateur(TypeUtilisateur typeUtilisateur) {
-		this.typeUtilisateur = typeUtilisateur;
+	public void setType(TypeUtilisateur type) {
+		this.type = type;
 	}
+
+
+
+
 	
 	
 	
