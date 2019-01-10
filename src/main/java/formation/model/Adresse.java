@@ -1,9 +1,13 @@
 package formation.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,7 +29,16 @@ public class Adresse {
 	private String pays;
 	@OneToOne (mappedBy = "adresse")
 	private Patient patient;
+	@OneToMany (mappedBy="adresse")
+	private List<AdressePraticien> adresses=new ArrayList<>();
 	
+
+	public List<AdressePraticien> getAdressePraticien() {
+		return adresses;
+	}
+
+	public void setAdressePraticien(List<AdressePraticien> adresses) {
+		this.adresses = adresses; }
 
 	public Adresse() {
 	}

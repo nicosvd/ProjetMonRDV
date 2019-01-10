@@ -7,10 +7,12 @@ import formation.dao.IDaoAdresse;
 import formation.dao.IDaoCreneau;
 import formation.dao.IDaoMotif;
 import formation.dao.IDaoRendezVous;
+import formation.dao.IDaoUtilisateur;
 import formation.dao.jpa.DaoAdresseJpa;
 import formation.dao.jpa.DaoCreneauJpa;
 import formation.dao.jpa.DaoMotifJpa;
 import formation.dao.jpa.DaoRendezVousJpa;
+import formation.dao.jpa.DaoUtilisateur;
 
 public class Application {
 
@@ -22,7 +24,13 @@ public class Application {
 	private final IDaoMotif daoMotif = new DaoMotifJpa();
 	private final IDaoCreneau daoCreneau = new DaoCreneauJpa();
 	private final IDaoAdresse daoAdresse = new DaoAdresseJpa();
+	private final IDaoUtilisateur daoUtilisateur = new DaoUtilisateur();
 	
+	
+	public IDaoUtilisateur getDaoUtilisateur() {
+		return daoUtilisateur;
+	}
+
 	private Application() {
 	}
 
