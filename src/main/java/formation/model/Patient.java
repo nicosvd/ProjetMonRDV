@@ -22,7 +22,7 @@ public class Patient {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column (name="phone")
+	@Column(name = "phone")
 	private Integer telephone;
 	@Column(name = "birthDate")
 	private Date dtNaissance;
@@ -41,8 +41,7 @@ public class Patient {
 		super();
 	}
 
-	public Patient(String mail, String motdepasse, TypeUtilisateur typeUtilisateur, Integer telephone, Date dtNaissance,
-			boolean principal, String nom, String prenom) {
+	public Patient(Integer telephone, Date dtNaissance, boolean principal, String nom, String prenom) {
 		super();
 		this.telephone = telephone;
 		this.dtNaissance = dtNaissance;

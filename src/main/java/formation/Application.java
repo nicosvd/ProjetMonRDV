@@ -6,12 +6,14 @@ import javax.persistence.Persistence;
 import formation.dao.IDaoAdresse;
 import formation.dao.IDaoCreneau;
 import formation.dao.IDaoMotif;
+import formation.dao.IDaoPatient;
 import formation.dao.IDaoPraticien;
 import formation.dao.IDaoRendezVous;
 import formation.dao.IDaoUtilisateur;
 import formation.dao.jpa.DaoAdresseJpa;
 import formation.dao.jpa.DaoCreneauJpa;
 import formation.dao.jpa.DaoMotifJpa;
+import formation.dao.jpa.DaoPatientJpa;
 import formation.dao.jpa.DaoPraticienJpa;
 import formation.dao.jpa.DaoRendezVousJpa;
 import formation.dao.jpa.DaoUtilisateurJpa;
@@ -28,16 +30,9 @@ public class Application {
 	private final IDaoAdresse daoAdresse = new DaoAdresseJpa();
 	private final IDaoUtilisateur daoUtilisateur = new DaoUtilisateurJpa();
 	private final IDaoPraticien daoPraticien = new DaoPraticienJpa();
+	private final IDaoPatient daoPatient = new DaoPatientJpa();
 	
 	
-	public IDaoPraticien getDaoPraticien() {
-		return daoPraticien;
-	}
-
-	public IDaoUtilisateur getDaoUtilisateur() {
-		return daoUtilisateur;
-	}
-
 	private Application() {
 	}
 
@@ -68,4 +63,17 @@ public class Application {
 	public IDaoAdresse getDaoAdresse() {
 		return daoAdresse;
 	}
+	
+	public IDaoPraticien getDaoPraticien() {
+		return daoPraticien;
+	}
+
+	public IDaoUtilisateur getDaoUtilisateur() {
+		return daoUtilisateur;
+	}
+	
+	public IDaoPatient getDaoPatient() {
+		return daoPatient;
+	}
+	
 }

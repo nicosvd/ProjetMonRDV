@@ -7,10 +7,12 @@ import formation.Application;
 import formation.dao.IDaoAdresse;
 import formation.dao.IDaoCreneau;
 import formation.dao.IDaoMotif;
+import formation.dao.IDaoPatient;
 import formation.dao.IDaoRendezVous;
 import formation.model.Adresse;
 import formation.model.Creneau;
 import formation.model.Motif;
+import formation.model.Patient;
 import formation.model.RendezVous;
 
 public class TestFormationWithDao {
@@ -28,8 +30,15 @@ public class TestFormationWithDao {
 		System.out.println(
 				motif.getMotifRendezVous() + "\t" + motif.getPrixConsultation() + "\t" + motif.getDureeConsultation());
 
+//		IDaoPatient daoPatient = Application.getInstance().getDaoPatient();
+//		Patient patient = new Patient(010000000000, sdf.parse("10-12-1994"), true, "LINART", "Elodie");
+//		rendezVous.getPatient()
+//		rendezVous = daoRendezVous.save(rendezVous);
+//		System.out.println(rendezVous);
+		
 		IDaoRendezVous daoRendezVous = Application.getInstance().getDaoRendezVous();
 		RendezVous rendezVous = new RendezVous();
+//		rendezVous.setPatient(patient);
 		rendezVous = daoRendezVous.save(rendezVous);
 		System.out.println(rendezVous);
 
