@@ -27,6 +27,7 @@ public class Application {
 	private final IDaoUtilisateur daoUtilisateur = new DaoUtilisateur();
 	
 	
+	
 	public IDaoUtilisateur getDaoUtilisateur() {
 		return daoUtilisateur;
 	}
