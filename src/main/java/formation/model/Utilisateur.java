@@ -17,23 +17,23 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="Person")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="type", discriminatorType=DiscriminatorType.STRING)
-
-public class Utilisateur {
-
+@Table(name = "user_account")
+public class Utilisateur implements Serializable {
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column (name="courriel")
-	private String mail;
-	@Column (name="password")
-	private String motdepasse;
+	@Column(name = "mail")
+	private String courriel;
+	@Column(name = "password")
+	private String motDePasse;
+	@Column(name = "type")
 	@Enumerated(EnumType.STRING)
-	private TypeUtilisateur typeUtilisateur;
+	private TypeUtilisateur type;
 //	@OneToMany (mappebBy="utilisateur")
 //	private Patient patient;
+	@OneToOne(mappedBy="utilisateur")
+	private Praticien praticien;
 	
 	
 	public Utilisateur() {
@@ -47,6 +47,19 @@ public class Utilisateur {
 		this.motdepasse = motdepasse;
 		this.typeUtilisateur = typeUtilisateur;
 	}
+
+
+
+	public Praticien getPraticien() {
+		return praticien;
+	}
+
+
+
+	public void setPraticien(Praticien praticien) {
+		this.praticien = praticien;
+	}
+
 
 
 	public Long getId() {

@@ -13,15 +13,15 @@ public class Adresse {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column (name="number")
+	@Column(name="number")
 	private int numero;
-	@Column (name="street")
+	@Column(name="street")
 	private String rue;
-	@Column (name="zipcode")
+	@Column(name="zipcode")
 	private int codePostal;
-	@Column (name="city")
+	@Column(name="city")
 	private String ville;
-	@Column (name="country")
+	@Column(name="country")
 	private String pays;
 	@OneToOne (mappedBy = "adresse")
 	private Patient patient;
