@@ -5,10 +5,12 @@ import java.text.SimpleDateFormat;
 
 import formation.Application;
 import formation.dao.IDaoAdresse;
+import formation.dao.IDaoAdressePraticien;
 import formation.dao.IDaoCreneau;
 import formation.dao.IDaoMotif;
 import formation.dao.IDaoPatient;
 import formation.dao.IDaoPraticien;
+import formation.dao.IDaoPraticienSpecialite;
 import formation.dao.IDaoRendezVous;
 import formation.dao.IDaoSpecialite;
 import formation.model.Adresse;
@@ -17,6 +19,7 @@ import formation.model.Creneau;
 import formation.model.Motif;
 import formation.model.Patient;
 import formation.model.Praticien;
+import formation.model.PraticienSpecialite;
 import formation.model.RendezVous;
 import formation.model.Specialite;
 
@@ -72,6 +75,7 @@ public class TestFormationWithDao {
 		Creneau creneau1 = new Creneau (sdf.parse("10-12-1994"));
 		creneau1 = daoCreneau.save(creneau1);
 		
+		// test rendez-vous
 		
 
 		// test Adresse et Praticien
@@ -80,31 +84,31 @@ public class TestFormationWithDao {
 		adr1praticien1 = daoAdressePraticien.save(adr1praticien1);
 
 		// test Praticien et Specialite
-		IDaoSpecialitePraticien daoSpecialitePraticien = Application.getInstance().getDaoSpecialitePraticienn();
-		SpecialitePraticien spe1praticien1 = new SpecialitePraticien();
+		IDaoPraticienSpecialite daoSpecialitePraticien = Application.getInstance().getDaoPraticienSpecialite();
+		PraticienSpecialite spe1praticien1 = new PraticienSpecialite();
 		adr1praticien1 = daoAdressePraticien.save(adr1praticien1);
 		
-		// 
+		
 
 		
 		
 		
 		
 		
-		IDaoMotif daoMotif = Application.getInstance().getDaoMotif();
-		Motif motif = new Motif();
-		motif.setMotifRendezVous("Consultation");
-		motif.setPrixConsultation(20);
-		motif.setDureeConsultation(30);
-		motif = daoMotif.save(motif);
-		System.out.println(
-				motif.getMotifRendezVous() + "\t" + motif.getPrixConsultation() + "\t" + motif.getDureeConsultation());
-
-		IDaoPatient daoPatient = Application.getInstance().getDaoPatient();
-		Patient patient = new Patient(612345678, sdf.parse("10-12-1994"), true, "LINART", "Elodie");
-		patient = daoPatient.save(patient);
-		System.out.println(patient.getTelephone() + " \t" + patient.getDtNaissance() + " \t" + patient.isPrincipal()
-				+ " \t" + patient.getNom() + " \t" + patient.getPrenom());
+//		IDaoMotif daoMotif = Application.getInstance().getDaoMotif();
+//		Motif motif = new Motif();
+//		motif.setMotifRendezVous("Consultation");
+//		motif.setPrixConsultation(20);
+//		motif.setDureeConsultation(30);
+//		motif = daoMotif.save(motif);
+//		System.out.println(
+//				motif.getMotifRendezVous() + "\t" + motif.getPrixConsultation() + "\t" + motif.getDureeConsultation());
+//
+//		IDaoPatient daoPatient = Application.getInstance().getDaoPatient();
+//		Patient patient = new Patient(612345678, sdf.parse("10-12-1994"), true, "LINART", "Elodie");
+//		patient = daoPatient.save(patient);
+//		System.out.println(patient.getTelephone() + " \t" + patient.getDtNaissance() + " \t" + patient.isPrincipal()
+//				+ " \t" + patient.getNom() + " \t" + patient.getPrenom());
 
 		// IDaoPatient daoPatient = Application.getInstance().getDaoPatient();
 		// Patient patient = new Patient(010000000000, sdf.parse("10-12-1994"), true,
@@ -113,21 +117,21 @@ public class TestFormationWithDao {
 		// rendezVous = daoRendezVous.save(rendezVous);
 		// System.out.println(rendezVous);
 
-		IDaoRendezVous daoRendezVous = Application.getInstance().getDaoRendezVous();
-		RendezVous rendezVous = new RendezVous();
-		rendezVous.setMotif(motif);
-		// rendezVous.setPatient(patient);
-		rendezVous = daoRendezVous.save(rendezVous);
-		System.out.println(rendezVous.getMotif().getDureeConsultation());
-
-		IDaoCreneau daoCreneau = Application.getInstance().getDaoCreneau();
-		Creneau creneau = new Creneau();
-		creneau.setDateRendezVous(sdf.parse("10-11-1994"));
-		creneau.setUniteTempsCreneau(15);
-		creneau.setRendezVous(rendezVous);
-		creneau = daoCreneau.save(creneau);
-		System.out.println(
-				creneau.getDateRendezVous() + "\t" + creneau.getUniteTempsCreneau() + "\t" + creneau.getRendezVous());
-
-	}
+//		IDaoRendezVous daoRendezVous = Application.getInstance().getDaoRendezVous();
+//		RendezVous rendezVous = new RendezVous();
+//		rendezVous.setMotif(motif);
+//		// rendezVous.setPatient(patient);
+//		rendezVous = daoRendezVous.save(rendezVous);
+//		System.out.println(rendezVous.getMotif().getDureeConsultation());
+//
+//		IDaoCreneau daoCreneau = Application.getInstance().getDaoCreneau();
+//		Creneau creneau = new Creneau();
+//		creneau.setDateRendezVous(sdf.parse("10-11-1994"));
+//		creneau.setUniteTempsCreneau(15);
+//		creneau.setRendezVous(rendezVous);
+//		creneau = daoCreneau.save(creneau);
+//		System.out.println(
+//				creneau.getDateRendezVous() + "\t" + creneau.getUniteTempsCreneau() + "\t" + creneau.getRendezVous());
+//
+//	}
 }

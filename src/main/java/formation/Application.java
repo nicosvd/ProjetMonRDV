@@ -4,18 +4,24 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import formation.dao.IDaoAdresse;
+import formation.dao.IDaoAdressePraticien;
 import formation.dao.IDaoCreneau;
 import formation.dao.IDaoMotif;
 import formation.dao.IDaoPatient;
 import formation.dao.IDaoPraticien;
+import formation.dao.IDaoPraticienSpecialite;
 import formation.dao.IDaoRendezVous;
+import formation.dao.IDaoSpecialite;
 import formation.dao.IDaoUtilisateur;
 import formation.dao.jpa.DaoAdresseJpa;
+import formation.dao.jpa.DaoAdressePraticienJpa;
 import formation.dao.jpa.DaoCreneauJpa;
 import formation.dao.jpa.DaoMotifJpa;
 import formation.dao.jpa.DaoPatientJpa;
 import formation.dao.jpa.DaoPraticienJpa;
+import formation.dao.jpa.DaoPraticienSpecialiteJpa;
 import formation.dao.jpa.DaoRendezVousJpa;
+import formation.dao.jpa.DaoSpecialiteJpa;
 import formation.dao.jpa.DaoUtilisateurJpa;
 
 public class Application {
@@ -33,7 +39,7 @@ public class Application {
 	private final IDaoPatient daoPatient = new DaoPatientJpa();
 	private final IDaoSpecialite daoSpecialite = new DaoSpecialiteJpa();
 	private final IDaoAdressePraticien daoAdressePraticien = new DaoAdressePraticienJpa();
-	private final IDaoSpecialitePraticien daoSpecialitePraticie = new DaoSpecialitePraticieJpa();
+	private final IDaoPraticienSpecialite daoPraticienSpecialite = new DaoPraticienSpecialiteJpa();
 	
 	
 	private Application() {
@@ -78,5 +84,19 @@ public class Application {
 	public IDaoPatient getDaoPatient() {
 		return daoPatient;
 	}
+
+	public IDaoSpecialite getDaoSpecialite() {
+		return daoSpecialite;
+	}
+
+	public IDaoAdressePraticien getDaoAdressePraticien() {
+		return daoAdressePraticien;
+	}
+
+	public IDaoPraticienSpecialite getDaoPraticienSpecialite() {
+		return daoPraticienSpecialite;
+	}
+	
+	
 	
 }
