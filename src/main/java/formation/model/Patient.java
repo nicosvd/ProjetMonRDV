@@ -15,27 +15,39 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-@Table
+@Table(name="patient")
 public class Patient {
 	@Id
 	@GeneratedValue
 	private Long id;
 	@Column(name = "phone")
 	private Integer telephone;
-	@Column(name = "birthDate")
+	@Temporal(TemporalType.DATE)
 	private Date dtNaissance;
+	@Column(name="principal")
 	private boolean principal;
 	@Column(name = "lastname")
 	private String nom;
 	@Column(name = "firstname")
 	private String prenom;
 	@OneToOne
-	@JoinColumn
+	@JoinColumn(name="adress")
 	private Adresse adresse;
 	@ManyToOne
+	@JoinColumn(name="user_id")
 	private Utilisateur utilisateur;
+
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
 
 	public Patient() {
 		super();

@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -13,8 +15,9 @@ public class RendezVous {
 	@Id
 	@GeneratedValue
 	Long id;
-	@Column(name = "patient")
-	private Patient patient;
+	@ManyToOne
+	@JoinColumn(name = "user_account_id")
+	private Utilisateur utilisateur;
 	@OneToOne(mappedBy = "rendezVous")
 	private Motif motif;
 	@OneToOne(mappedBy = "rendezVous")
@@ -31,12 +34,14 @@ public class RendezVous {
 		this.id = id;
 	}
 
-	public Patient getPatient() {
-		return patient;
+
+
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
 
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 
 	public Motif getMotif() {

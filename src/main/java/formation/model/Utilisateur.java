@@ -1,6 +1,8 @@
 package formation.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -33,10 +35,12 @@ public class Utilisateur implements Serializable {
 	@Column(name = "type")
 	@Enumerated(EnumType.STRING)
 	private TypeUtilisateur type;
-//	@OneToMany (mappedBy="utilisateur")
-//	private Patient patient;
+	@OneToMany (mappedBy="utilisateur")
+	private List<Patient> patients= new ArrayList<>();
 	@OneToOne(mappedBy="utilisateur")
 	private Praticien praticien;
+	@OneToMany(mappedBy="utilisateur")
+	private List<RendezVous> rendezVous = new ArrayList<>();
 	
 	
 	public Utilisateur() {

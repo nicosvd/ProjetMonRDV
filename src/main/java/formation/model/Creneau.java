@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "slot")
@@ -16,9 +18,11 @@ public class Creneau {
 	@Id
 	@GeneratedValue
 	Long id;
+	@Temporal(TemporalType.DATE)
 	Date dateRendezVous;
+	@Column(name="slot_time")
 	int uniteTempsCreneau;
-	@Column(name = "adresse")
+	@Column(name = "adress")
 	Adresse adresse;
 	@OneToOne
 	@JoinColumn(name = "meeting")
