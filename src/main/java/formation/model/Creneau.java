@@ -31,6 +31,15 @@ public class Creneau {
 
 	public Creneau() {
 	}
+	
+	
+
+	public Creneau(Date dateRendezVous) {
+		super();
+		this.dateRendezVous = dateRendezVous;
+	}
+
+
 
 	public Long getId() {
 		return id;

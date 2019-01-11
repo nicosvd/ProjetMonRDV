@@ -21,6 +21,15 @@ public class Motif {
 
 	public Motif() {
 	}
+	
+
+	public Motif(String motifRendezVous, int prixConsultation, int dureeConsultation) {
+		super();
+		this.motifRendezVous = motifRendezVous;
+		this.prixConsultation = prixConsultation;
+		this.dureeConsultation = dureeConsultation;
+	}
+
 
 	public Long getId() {
 		return id;

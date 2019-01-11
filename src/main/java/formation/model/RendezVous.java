@@ -15,6 +15,7 @@ public class RendezVous {
 	@Id
 	@GeneratedValue
 	Long id;
+	private Patient patient;
 	@ManyToOne
 	@JoinColumn(name = "user_account_id")
 	private Utilisateur utilisateur;
@@ -26,6 +27,19 @@ public class RendezVous {
 
 	public RendezVous() {
 	}
+
+	
+	
+	
+	public RendezVous(Patient patient, Motif motif, Creneau creneau) {
+		super();
+		this.patient = patient;
+		this.motif = motif;
+		this.creneau = creneau;
+	}
+
+
+
 
 	public Long getId() {
 		return id;

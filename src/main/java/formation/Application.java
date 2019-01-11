@@ -31,6 +31,9 @@ public class Application {
 	private final IDaoUtilisateur daoUtilisateur = new DaoUtilisateurJpa();
 	private final IDaoPraticien daoPraticien = new DaoPraticienJpa();
 	private final IDaoPatient daoPatient = new DaoPatientJpa();
+	private final IDaoSpecialite daoSpecialite = new DaoSpecialiteJpa();
+	private final IDaoAdressePraticien daoAdressePraticien = new DaoAdressePraticienJpa();
+	private final IDaoSpecialitePraticien daoSpecialitePraticie = new DaoSpecialitePraticieJpa();
 	
 	
 	private Application() {
