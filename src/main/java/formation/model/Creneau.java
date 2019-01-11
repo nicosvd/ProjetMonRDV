@@ -22,8 +22,9 @@ public class Creneau {
 	Date dateRendezVous;
 	@Column(name="slot_time")
 	int uniteTempsCreneau;
-	@Column(name = "adress")
-	Adresse adresse;
+	@OneToOne
+	@JoinColumn(name = "adress")
+	private Adresse adresse;
 	@OneToOne
 	@JoinColumn(name = "meeting")
 	private RendezVous rendezVous;

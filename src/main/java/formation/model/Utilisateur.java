@@ -56,6 +56,21 @@ public class Utilisateur implements Serializable {
 	}
 
 
+	public List<Patient> getPatients() {
+		return patients;
+	}
+
+
+	public Praticien getPraticien() {
+		return praticien;
+	}
+
+
+	public List<RendezVous> getRendezVous() {
+		return rendezVous;
+	}
+
+
 	public Long getId() {
 		return id;
 	}

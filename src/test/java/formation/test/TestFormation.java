@@ -25,13 +25,14 @@ public class TestFormation {
 
 			tx.begin();
 			Utilisateur nicosvd = new Utilisateur("nico.svd@orange.fr","sudoku",TypeUtilisateur.Praticien);
-			Praticien sekouly = new Praticien(15687,"KOULIBALY","SEKOULY");
+			Praticien sekouly = new Praticien(15687,"COULIBALY","SEKOULY");
 			sekouly.setCb(true);
 			sekouly.setCheque(true);
 			sekouly.setUtilisateur(nicosvd);
 			em.persist(nicosvd);
 			Adresse ajc=new Adresse(8,"rue Rougemont",94800,"Paris","France");
 			em.persist(ajc);
+			em.persist(sekouly);
 			tx.commit(); // em.flush()
 		} catch (Exception e) {
 			e.printStackTrace();

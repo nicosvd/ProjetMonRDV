@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "adresse")
+@Table(name = "adress")
 public class Adresse {
 	@Id
 	@GeneratedValue
@@ -29,6 +29,8 @@ public class Adresse {
 	private String pays;
 	@OneToOne (mappedBy = "adresse")
 	private Patient patient;
+	@OneToOne(mappedBy="adresse")
+	private Creneau creneau;
 	@OneToMany (mappedBy="adresse")
 	private List<AdressePraticien> adresses=new ArrayList<>();
 	
