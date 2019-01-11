@@ -1,5 +1,6 @@
 package formation.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,8 +14,11 @@ public class Motif {
 	@Id
 	@GeneratedValue
 	Long id;
+	@Column(name="motive")
 	String motifRendezVous;
+	@Column(name="cost")
 	int prixConsultation;
+	@Column(name="time_slot")
 	int dureeConsultation;
 	@OneToOne(mappedBy = "motif")
 	private RendezVous rendezVous;

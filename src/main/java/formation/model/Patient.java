@@ -1,6 +1,8 @@
 package formation.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
@@ -40,6 +42,8 @@ public class Patient {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private Utilisateur utilisateur;
+	@OneToMany(mappedBy="patient")
+	private List<RendezVous> rendezVouss=new ArrayList<>();
 
 	public Utilisateur getUtilisateur() {
 		return utilisateur;

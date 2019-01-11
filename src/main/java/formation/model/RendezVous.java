@@ -15,6 +15,8 @@ public class RendezVous {
 	@Id
 	@GeneratedValue
 	Long id;
+	@ManyToOne
+	@JoinColumn(name="patient_id")
 	private Patient patient;
 	@ManyToOne
 	@JoinColumn(name = "user_account_id")
@@ -24,6 +26,8 @@ public class RendezVous {
 	private Motif motif;
 	@OneToOne(mappedBy = "rendezVous")
 	private Creneau creneau;
+	
+
 
 	public RendezVous() {
 	}
