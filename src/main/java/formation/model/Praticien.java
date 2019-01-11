@@ -45,21 +45,9 @@ public class Praticien {
 	private Utilisateur utilisateur;
 	@OneToMany(mappedBy="praticien")
 	private List<AdressePraticien> praticiens=new ArrayList<>();
+	@OneToMany (mappedBy="praticien")
+	private List<PraticienSpecialite> praticiens2=new ArrayList<>();
 	
-	
-	
-	public List<AdressePraticien> getPraticiens() {
-		return praticiens;
-	}
-
-
-
-	public void setPraticiens(List<AdressePraticien> praticiens) {
-		this.praticiens = praticiens;
-	}
-
-
-
 	public Praticien() {
 		super();
 	}
@@ -73,6 +61,44 @@ public class Praticien {
 		this.prenom = prenom;
 	}
 
+	
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+	public List<PraticienSpecialite> getPraticiens2() {
+		return praticiens2;
+	}
+
+
+
+	public void setPraticiens2(List<PraticienSpecialite> praticiens2) {
+		this.praticiens2 = praticiens2;
+	}
+
+
+
+	public List<AdressePraticien> getPraticiens() {
+		return praticiens;
+	}
+
+
+
+	public void setPraticiens(List<AdressePraticien> praticiens) {
+		this.praticiens = praticiens;
+	}
+
+
+
+	
 
 
 	public int getNumeroOrdre() {
