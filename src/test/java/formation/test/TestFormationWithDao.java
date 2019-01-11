@@ -18,7 +18,7 @@ import formation.model.RendezVous;
 public class TestFormationWithDao {
 
 	public static void main(String[] args) throws ParseException {
-		
+
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
 		IDaoMotif daoMotif = Application.getInstance().getDaoMotif();
@@ -30,17 +30,17 @@ public class TestFormationWithDao {
 		System.out.println(
 				motif.getMotifRendezVous() + "\t" + motif.getPrixConsultation() + "\t" + motif.getDureeConsultation());
 
-//		IDaoPatient daoPatient = Application.getInstance().getDaoPatient();
-//		Patient patient = new Patient(010000000000, sdf.parse("10-12-1994"), true, "LINART", "Elodie");
-//		rendezVous.getPatient()
-//		rendezVous = daoRendezVous.save(rendezVous);
-//		System.out.println(rendezVous);
-		
+		IDaoPatient daoPatient = Application.getInstance().getDaoPatient();
+		Patient patient = new Patient(612345678, sdf.parse("10-12-1994"), true, "LINART", "Elodie");
+		patient = daoPatient.save(patient);
+		System.out.println(patient.getTelephone() + " \t" + patient.getDtNaissance() + " \t" + patient.isPrincipal()
+				+ " \t" + patient.getNom() + " \t" + patient.getPrenom());
+
 		IDaoRendezVous daoRendezVous = Application.getInstance().getDaoRendezVous();
 		RendezVous rendezVous = new RendezVous();
-//		rendezVous.setPatient(patient);
+		rendezVous.setMotif(motif);
 		rendezVous = daoRendezVous.save(rendezVous);
-		System.out.println(rendezVous);
+		System.out.println(rendezVous.getMotif().getDureeConsultation());
 
 		IDaoCreneau daoCreneau = Application.getInstance().getDaoCreneau();
 		Creneau creneau = new Creneau();

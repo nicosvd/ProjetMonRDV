@@ -18,7 +18,8 @@ public class RendezVous {
 	@ManyToOne
 	@JoinColumn(name = "user_account_id")
 	private Utilisateur utilisateur;
-	@OneToOne(mappedBy = "rendezVous")
+	@OneToOne
+	@JoinColumn(name = "motive")
 	private Motif motif;
 	@OneToOne(mappedBy = "rendezVous")
 	private Creneau creneau;
@@ -34,8 +35,6 @@ public class RendezVous {
 		this.id = id;
 	}
 
-
-
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
@@ -50,6 +49,10 @@ public class RendezVous {
 
 	public Creneau getCreneau() {
 		return creneau;
+	}
+
+	public void setMotif(Motif motif) {
+		this.motif = motif;
 	}
 
 }

@@ -16,8 +16,7 @@ public class Motif {
 	String motifRendezVous;
 	int prixConsultation;
 	int dureeConsultation;
-	@OneToOne
-	@JoinColumn(name = "meeting")
+	@OneToOne(mappedBy = "motif")
 	private RendezVous rendezVous;
 
 	public Motif() {
@@ -53,6 +52,10 @@ public class Motif {
 
 	public void setDureeConsultation(int dureeConsultation) {
 		this.dureeConsultation = dureeConsultation;
+	}
+
+	public RendezVous getRendezVous() {
+		return rendezVous;
 	}
 
 }
